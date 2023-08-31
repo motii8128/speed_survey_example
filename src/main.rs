@@ -6,9 +6,10 @@ use plotlib::style::PointStyle;
 use std::time::Instant;
 
 fn main() {
+    let measure_times = 1000;
     let mut point1 = vec![(0.0, 0.0)];
     let mut point2 = vec![(0.0, 0.0)];
-    for i in 0..10
+    for i in 0..measure_times
     {
         let start1 = Instant::now();
 
@@ -55,7 +56,7 @@ fn main() {
     let view = ContinuousView::new()
         .add(plot1)
         .add(plot2)
-        .x_range(0.0, 10.0)
+        .x_range(0.0, measure_times as f64)
         .y_range(0.0, 2000.0)
         .x_label("times")
         .y_label("secs(nano)");
